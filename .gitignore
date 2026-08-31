@@ -1,0 +1,6 @@
+.env
+.dart_tool/
+build/
+.pub-cache/
+.idea/
+.vscode/
