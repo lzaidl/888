@@ -1,35 +1,50 @@
-# Chat & Dating V1.0
+# وصل — Chat & Dating V1.0
 
-تطبيق دردشة وتعارف متعدد المنصات مبني على Flutter + Supabase.
+Flutter + Supabase application for Web, Android and iOS.
 
-## المنصات
-- Android
-- iOS
-- Web
+## GitHub Pages deployment
 
-## المزايا
-- تسجيل/دخول بالبريد وكلمة المرور
-- ملف شخصي: الاسم، العمر، الجنس، الدولة، النبذة، الصورة
-- اكتشاف المستخدمين حسب الجنس والدولة
-- إعجاب و Match
-- دردشة خاصة Realtime
-- بحث فوري عن أشخاص يبحثون بنفس الوقت
-- حظر وإبلاغ
-- إشعارات داخل التطبيق
-- Dark / Light / System
-- تصميم RTL عربي
+1. Create a GitHub repository, e.g. `888`.
+2. Upload all files from this project to the repository (do not upload the ZIP itself).
+3. In **Settings → Secrets and variables → Actions**, add:
+   - `SUPABASE_URL`
+   - `SUPABASE_ANON_KEY`
+4. In **Settings → Pages**, set **Source** to **GitHub Actions**.
+5. Push to `main`. The workflow builds Flutter Web and publishes it automatically.
 
-## التشغيل
-1. ثبّت Flutter.
-2. أنشئ مشروع Flutter فارغ أو انسخ هذه الملفات فوق مشروع Flutter جديد.
-3. أضف الحزم الموجودة في `pubspec.yaml`.
-4. أنشئ مشروع Supabase.
-5. نفّذ `supabase/schema.sql` في SQL Editor.
-6. أنشئ ملف `.env` من `.env.example` وضع:
-   SUPABASE_URL=...
-   SUPABASE_ANON_KEY=...
-7. شغّل:
-   flutter pub get
-   flutter run
+For a repository named `888`, the site will be:
+`https://YOUR-USERNAME.github.io/888/`
 
-> ملاحظة: ملفات Android/iOS الأصلية المولدة بواسطة Flutter ليست مضمنة لتقليل حجم الحزمة. استخدم `flutter create .` داخل المجلد بعد فك الضغط إذا احتجت ملفات المنصات.
+## Supabase
+
+Run:
+- `supabase/schema.sql`
+- `supabase/live_match.sql`
+
+## Local run
+
+```bash
+flutter create .
+flutter pub get
+# create .env from .env.example
+flutter run
+```
+
+For Web:
+```bash
+flutter build web --release
+```
+
+## V1 features
+
+- Account registration/login
+- Gender and country profile fields
+- Discover/search by gender and country
+- Likes and mutual matches
+- Private realtime chat foundation
+- Live search/matching foundation
+- Blocking/reporting foundation
+- Light/Dark/System theme
+- Supabase database, RLS and Realtime
+
+Production additions still recommended before store release: avatar storage policies, push notifications, moderation/admin dashboard, password reset/email verification, anti-spam/rate limits, pagination, presence heartbeat, privacy/terms pages, and App Store/Play Store configuration.
